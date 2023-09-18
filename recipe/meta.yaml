@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python >=3.8,<3.12
-    - tiledbsoma >=1.4.3,<1.5.dev0
+    - tiledbsoma-py
     - anndata
     - numpy >=1.21,<1.25
     - requests
