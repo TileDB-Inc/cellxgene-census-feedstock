@@ -1,0 +1,48 @@
+{% set name = "cellxgene-census" %}
+{% set version = "1.6.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cellxgene_census-{{ version }}.tar.gz
+  sha256: bf176601ee159b357a4c0ae233328aa87dd28dbd89be3f4c0710c8961288404d
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  host:
+    - python >=3.8,<3.12
+    - setuptools >=45
+    - setuptools-scm >=6.2
+    - pip
+  run:
+    - python >=3.8,<3.12
+    - tiledbsoma >=1.4.3,<1.5.dev0
+    - anndata
+    - numpy >=1.21,<1.25
+    - requests
+    - typing-extensions
+    - s3fs >=2021.06.1
+    - scipy <1.11
+
+test:
+  imports:
+    - cellxgene_census
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  summary: API to facilitate the use of the CZ CELLxGENE Discover Census. For more information about the API and the project visit https://github.com/chanzuckerberg/cellxgene-census/
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - Shelnutt2
