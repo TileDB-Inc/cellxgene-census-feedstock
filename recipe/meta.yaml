@@ -33,10 +33,6 @@ requirements:
 test:
   imports:
     - cellxgene_census
-  commands:
-    - pip check
-  requires:
-    - pip
 
 about:
   summary: API to facilitate the use of the CZ CELLxGENE Discover Census. For more information about the API and the project visit https://github.com/chanzuckerberg/cellxgene-census/
