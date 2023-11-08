@@ -1,5 +1,5 @@
 {% set name = "cellxgene-census" %}
-{% set version = "1.6.0" %}
+{% set version = "1.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cellxgene_census-{{ version }}.tar.gz
-  sha256: bf176601ee159b357a4c0ae233328aa87dd28dbd89be3f4c0710c8961288404d
+  sha256: 3924427ff513085357ebea0d7d315e4c8b06161abbbbbd6f1da29ce2d8126951
 
 build:
   noarch: python
