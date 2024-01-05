@@ -1,8 +1,8 @@
 {% set name = "cellxgene-census" %}
 {% set last_name = "cellxgene_census" %}
-{% set version = "1.8.0" %}
+{% set version = "1.9.1" %}
 # shasum -a 256 of https://pypi.io/packages/source/c/cellxgene-census/cellxgene_census-i.j.k.tar.gz
-{% set sha256 = "2cd482f129fe2c0acb34cdffe44202e8f31a62593b66ce1c8e8fd89106b461ef" %}
+{% set sha256 = "4fa585df6429a0d53ae716dd136e16956fc42158d5868e8e4d575712806b7fb7" %}
 
 # https://pypi.io/packages/source/c/cellxgene-census/cellxgene-census-1.8.0.tar.gz
 
