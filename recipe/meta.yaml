@@ -1,8 +1,8 @@
 {% set name = "cellxgene-census" %}
 {% set last_name = "cellxgene_census" %}
-{% set version = "1.9.1" %}
+{% set version = "1.10.0" %}
 # shasum -a 256 of https://pypi.io/packages/source/c/cellxgene-census/cellxgene_census-i.j.k.tar.gz
-{% set sha256 = "e72b4bc4bb11b2cefc80d6a0f6e762b25809dc10232ec093c60238382e3f3cdd" %}
+{% set sha256 = "56be3562851ccccc1f2e560df48676ff9569f85c4ce75c848ff103c47e37cb45" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   host:
