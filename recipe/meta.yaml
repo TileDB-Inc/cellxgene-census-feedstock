@@ -1,5 +1,5 @@
 {% set name = "cellxgene-census" %}
-{% set last_name = "cellxgene-census" %}
+{% set last_name = "cellxgene_census" %}
 {% set version = "1.14.1" %}
 # shasum -a 256 of https://pypi.io/packages/source/c/cellxgene-census/cellxgene_census-i.j.k.tar.gz
 # See also
