@@ -16,7 +16,7 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
   number: 0
 
 requirements:
@@ -38,6 +38,10 @@ requirements:
 test:
   imports:
     - cellxgene_census
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   summary: API to facilitate the use of the CZ CELLxGENE Discover Census. For more information about the API and the project visit https://github.com/chanzuckerberg/cellxgene-census/
