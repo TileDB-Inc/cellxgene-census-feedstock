@@ -50,4 +50,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - jdblischak
+    - johnkerl
     - Shelnutt2

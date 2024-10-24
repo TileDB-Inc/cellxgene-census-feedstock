@@ -105,4 +105,6 @@ Feedstock Maintainers
 =====================
 
 * [@Shelnutt2](https://github.com/Shelnutt2/)
+* [@jdblischak](https://github.com/jdblischak/)
+* [@johnkerl](https://github.com/johnkerl/)
 
