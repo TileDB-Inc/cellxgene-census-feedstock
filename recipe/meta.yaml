@@ -41,6 +41,7 @@ test:
   requires:
     - pip
   commands:
+    - python -c "import cellxgene_census; print(cellxgene_census.__version__)"
     - pip check
 
 about:
