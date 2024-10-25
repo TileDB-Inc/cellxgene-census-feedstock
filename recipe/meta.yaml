@@ -13,6 +13,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ last_name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - remove-tiledbsoma-upper-bound.patch
 
 build:
   noarch: python
@@ -27,7 +29,7 @@ requirements:
     - pip
   run:
     - python >=3.8,<3.12
-    - tiledbsoma-py >=1.11.4,<1.12.0
+    - tiledbsoma-py >=1.11.4
     - anndata
     - numpy >=1.21,<2.0
     - requests
