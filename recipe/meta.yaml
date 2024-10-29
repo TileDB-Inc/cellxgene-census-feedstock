@@ -13,11 +13,13 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ last_name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - remove-tiledbsoma-upper-bound.patch
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
+  number: 1
 
 requirements:
   host:
@@ -27,9 +29,9 @@ requirements:
     - pip
   run:
     - python >=3.8,<3.12
-    - tiledbsoma-py
+    - tiledbsoma-py >=1.11.4
     - anndata
-    - numpy >=1.21,<1.25
+    - numpy >=1.21,<2.0
     - requests
     - typing-extensions
     - s3fs >=2021.06.1
@@ -38,6 +40,11 @@ requirements:
 test:
   imports:
     - cellxgene_census
+  requires:
+    - pip
+  commands:
+    - python -c "import cellxgene_census; print(cellxgene_census.__version__)"
+    - pip check
 
 about:
   summary: API to facilitate the use of the CZ CELLxGENE Discover Census. For more information about the API and the project visit https://github.com/chanzuckerberg/cellxgene-census/
@@ -46,4 +53,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - jdblischak
+    - johnkerl
     - Shelnutt2
