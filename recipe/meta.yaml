@@ -18,8 +18,10 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
-  number: 1
+  script: >-
+    SETUPTOOLS_SCM_PRETEND_VERSION="$(cat PKG-INFO | sed -n 's/^Version: //p')"
+    {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
+  number: 2
 
 requirements:
   host:
