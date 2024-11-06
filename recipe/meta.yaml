@@ -23,12 +23,12 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<3.12
+    - python >=3.9
     - setuptools >=45
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.8,<3.12
+    - python >=3.9
     - tiledbsoma-py >=1.11.4
     - anndata
     - numpy >=1.21,<2.0
