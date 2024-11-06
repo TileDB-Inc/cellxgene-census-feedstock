@@ -19,16 +19,16 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
-  number: 1
+  number: 2
 
 requirements:
   host:
-    - python >=3.9
+    - python >=3.9, <3.13
     - setuptools >=45
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.9
+    - python >=3.9, <3.13
     - tiledbsoma-py >=1.11.4
     - anndata
     - numpy >=1.21,<2.0
