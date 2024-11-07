@@ -1,49 +1,50 @@
 {% set name = "cellxgene-census" %}
 {% set last_name = "cellxgene_census" %}
-{% set version = "1.15.0" %}
+{% set version = "1.16.2" %}
 # shasum -a 256 of https://pypi.io/packages/source/c/cellxgene-census/cellxgene_census-i.j.k.tar.gz
 # See also
 # https://pypi.org/project/cellxgene-census/#files
-{% set sha256 = "db059d2e615ba7d2a7f59db8f7582dae7a0adccac1449d859af6bec2e040d072" %}
+{% set sha256 = "c007031b1e42b320a191ff1f20ea4099ea935fe5416dffcd710b0e4a94c28ce1" %}
+# https://conda-forge.org/docs/maintainer/knowledge_base/#noarch-python
+# Bump minimum in conda_build_config.yaml and rerender
+{% set python_min = python_min|default("0.1a0") %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ last_name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ last_name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - remove-tiledbsoma-upper-bound.patch
 
 build:
   noarch: python
   script: >-
     SETUPTOOLS_SCM_PRETEND_VERSION="$(cat PKG-INFO | sed -n 's/^Version: //p')"
     {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
-  number: 2
+  number: 0
 
 requirements:
   host:
-    - python >=3.8,<3.12
-    - setuptools >=45
-    - setuptools-scm >=6.2
+    - python {{ python_min }}.*
+    - setuptools >=64
+    - setuptools-scm >=8
     - pip
   run:
-    - python >=3.8,<3.12
-    - tiledbsoma-py >=1.11.4
+    - python >={{ python_min }},<3.13
+    - tiledbsoma-py >=1.12.3,!=1.14.1
     - anndata
-    - numpy >=1.21,<2.0
+    - numpy >=1.23,<2.0
     - requests
-    - typing-extensions
+    - typing_extensions
     - s3fs >=2021.06.1
-    - scipy
 
 test:
   imports:
     - cellxgene_census
   requires:
     - pip
+    - python ={{ python_min }}
   commands:
     - python -c "import cellxgene_census; print(cellxgene_census.__version__)"
     - pip check
