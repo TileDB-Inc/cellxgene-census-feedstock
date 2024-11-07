@@ -6,7 +6,8 @@
 # https://pypi.org/project/cellxgene-census/#files
 {% set sha256 = "c007031b1e42b320a191ff1f20ea4099ea935fe5416dffcd710b0e4a94c28ce1" %}
 # https://conda-forge.org/docs/maintainer/knowledge_base/#noarch-python
-{% set python_min = "3.10" %}
+# Bump minimum in conda_build_config.yaml and rerender
+{% set python_min = python_min|default("0.1a0") %}
 
 package:
   name: {{ name|lower }}

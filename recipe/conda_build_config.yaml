@@ -8,3 +8,5 @@ channel_targets:
   - tiledb main
 channel_priority:
   - strict
+python_min:
+  - "3.10"
