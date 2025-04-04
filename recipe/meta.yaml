@@ -1,10 +1,10 @@
 {% set name = "cellxgene-census" %}
 {% set last_name = "cellxgene_census" %}
-{% set version = "1.16.2" %}
+{% set version = "1.17.0" %}
 # shasum -a 256 of https://pypi.io/packages/source/c/cellxgene-census/cellxgene_census-i.j.k.tar.gz
 # See also
 # https://pypi.org/project/cellxgene-census/#files
-{% set sha256 = "c007031b1e42b320a191ff1f20ea4099ea935fe5416dffcd710b0e4a94c28ce1" %}
+{% set sha256 = "934f55dbc1124d8929e440362af204c6a09668587b26dbfeefe17d8dce0b6e9d" %}
 # https://conda-forge.org/docs/maintainer/knowledge_base/#noarch-python
 # Bump minimum in conda_build_config.yaml and rerender
 {% set python_min = python_min|default("0.1a0") %}
@@ -32,9 +32,9 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<3.13
-    - tiledbsoma-py >=1.12.3,!=1.14.1
+    - tiledbsoma-py >=1.15.3
     - anndata
-    - numpy >=1.23,<2.0
+    - numpy >=1.23
     - requests
     - typing_extensions
     - s3fs >=2021.06.1
